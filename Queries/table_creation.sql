@@ -12,7 +12,7 @@ create table salaries(
     salary_id varchar(20),
     emp_id varchar(20),
     salary varchar(20),
-    status varchar(20)
+    salary_date varchar(20)
 );
 create table attendence (
     attendance_id varchar(20),
@@ -26,3 +26,39 @@ create table performance (
     rating_2023 varchar(10),
     rating_2024 varchar(10)
 );
+
+use 50_days_sql_challenge;
+
+create table clean_departments 
+as
+select * FROM departments;
+
+create table clean_employees 
+as
+select * FROM employees;
+
+create table clean_salaries 
+as
+select * FROM salaries;
+
+create table clean_attendence 
+as
+select * FROM attendence;
+
+create table clean_performance 
+as
+select * FROM performance;
+
+drop table salaries;
+create table salaries(
+    salary_id varchar(20),
+    emp_id varchar(20),
+    salary varchar(20),
+    salary_date varchar(20)
+)
+
+drop table clean_salaries;
+
+create table clean_salaries 
+as
+select * FROM salaries;
