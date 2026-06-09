@@ -48,17 +48,3 @@ select * FROM attendence;
 create table clean_performance 
 as
 select * FROM performance;
-
-drop table salaries;
-create table salaries(
-    salary_id varchar(20),
-    emp_id varchar(20),
-    salary varchar(20),
-    salary_date varchar(20)
-)
-
-drop table clean_salaries;
-
-create table clean_salaries 
-as
-select * FROM salaries;
