@@ -45,3 +45,18 @@ WHERE hire_date IS NULL;
 
 SELECT DISTINCT hire_date
 FROM clean_employees;
+
+--modify attendence data
+UPDATE clean_attendence
+
+SET attendance_date  = CONCAT
+(
+    RIGHT(attendance_date ,4), '-',
+    SUBSTRING(attendance_date , 4, 2), '-',
+    LEFT(attendance_date , 2)
+)
+
+WHERE attendance_date  LIKE '__-__-____';
+
+ALTER TABLE clean_attendence
+MODIFY attendance_date DATE;
