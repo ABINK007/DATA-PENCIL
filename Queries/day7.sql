@@ -63,25 +63,16 @@ MODIFY attendance_date DATE;
 
 --modify salary table
 
+
 UPDATE clean_salaries
-SET salary_date = CASE
-    -- truly reversed (YYYY-DD-MM): middle segment > 12 means it can't be a month, so it's a day
-    WHEN salary_date LIKE '____-__-__'
-         AND CAST(SUBSTRING(salary_date, 6, 2) AS UNSIGNED) > 12
-    THEN CONCAT(
-            SUBSTRING(salary_date, 1, 4), '-',  -- year
-            SUBSTRING(salary_date, 9, 2), '-',  -- month
-            SUBSTRING(salary_date, 6, 2)        -- day
-         )
-    -- standard DD-MM-YYYY
-    WHEN salary_date LIKE '__-__-____'
-    THEN CONCAT(
-            RIGHT(salary_date, 4), '-',
-            SUBSTRING(salary_date, 4, 2), '-',
-            LEFT(salary_date, 2)
-         )
-    ELSE salary_date
-END;
+SET salary_date = '2023-07-15'
+WHERE salary_date = '1905-07-15';
+
+UPDATE clean_salaries
 
 ALTER TABLE clean_salaries
 MODIFY salary_date DATE;
+
+
+select * from clean_salaries;
+

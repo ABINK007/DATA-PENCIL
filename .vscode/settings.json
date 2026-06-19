@@ -13,6 +13,20 @@
             "name": "MYSQL_Local",
             "database": "abc_company",
             "username": "root"
+        },
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "ssh": "Disabled",
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3306,
+            "driver": "MySQL",
+            "name": "MySQL_Local",
+            "database": "50_days_sql_challenge",
+            "username": "root"
         }
     ]
 }
